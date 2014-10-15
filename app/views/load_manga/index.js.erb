@@ -1,0 +1,14 @@
+var $images = $('img');
+var $last_image = $($images[$images.length - 1]);
+console.log('jptjpt');
+$last_image.after("<img id=<%= @last_page %> src=<%= @image_url %>></img>")
+<% if @next_page_url.present? %>
+  setTimeout((function() {
+    console.log('reloading vitra...');
+    return $.ajax({
+      type: "get",
+      url: window.location.href + "?url=<%= @next_page_url %>",
+      dataType: 'script'
+    });
+  }), 100);
+<% end %>

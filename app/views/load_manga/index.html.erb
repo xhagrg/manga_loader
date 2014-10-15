@@ -1,0 +1,21 @@
+<% if @image_url.present? %>
+  <img id="<%=@last_page%>" src="<%=@image_url%>" />
+<% else %>
+  <%= form_tag(root_path, id: 'manga') do %>
+    <label>Enter the url of the first page of the manga:</label>
+    <input id="manga_url" name="url" size="100" type="text" placeholder="EG: http://www.mangapanda.com/bleach/600" />
+  <% end %>
+<% end %>
+<% if @next_page_url.present? %>
+  <script type="text/javascript" >
+    (function () {
+      console.log('reloading...');
+      $.ajax({
+        type: "get",
+        url: window.location.href + "?url=<%= @next_page_url %>",
+        dataType: 'script'
+      });
+    })();
+
+  </script>
+<% end %>
