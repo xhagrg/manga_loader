@@ -9,13 +9,11 @@
 <% if @next_page_url.present? %>
   <script type="text/javascript" >
     (function () {
-      console.log('reloading...');
       $.ajax({
         type: "get",
         url: window.location.href + "?url=<%= @next_page_url %>",
         dataType: 'script'
       });
     })();
-
   </script>
 <% end %>

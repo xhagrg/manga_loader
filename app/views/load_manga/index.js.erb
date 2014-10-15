@@ -1,7 +1,9 @@
-var $images = $('img');
-var $last_image = $($images[$images.length - 1]);
-console.log('jptjpt');
-$last_image.after("<img id=<%= @last_page %> src=<%= @image_url %>></img>")
+<% if @image_url.present? %>
+  var $images = $('img');
+  var $last_image = $($images[$images.length - 1]);
+  $last_image.after("<br/><img id=<%= @last_page %> src=<%= @image_url %>></img>")
+<% end %>
+
 <% if @next_page_url.present? %>
   setTimeout((function() {
     console.log('reloading vitra...');
