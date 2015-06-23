@@ -1,0 +1,2 @@
+MangaLoader::Application.config.secret_token="b56fd7f865fb8badb2e05efa74de1a2ca278249999c09dcd1d216bfc1d68dcd8f03568e61ffce2fdc9cb777d5882c4c1420246ba7ebf5b72057a3bcb384882f1
+"
