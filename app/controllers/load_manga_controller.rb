@@ -6,7 +6,7 @@ class LoadMangaController < ActionController::Base
       source = @url.split('.').second
       template = Phantomjs.run("#{Rails.root}/lib/phantom_renderer.js", @url)
       raw_html = Nokogiri::HTML.parse(template)
-      send("handle_#{source}")
+      send("handle_#{source}", raw_html)
     end
   end
 
