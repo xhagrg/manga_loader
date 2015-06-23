@@ -23,14 +23,14 @@ class LoadMangaController < ActionController::Base
 
     def handle_magastack(raw_html)
       image_url = raw_html.css('div.coverIssue a').first
-      url_array = url.split('?page=') || 2
+      url_array = @url.split('?page=') || 2
       @last_page = url_array.pop()
       @image_url = image_url.children.first.attributes['src']
       @next_page_url = image_url + "?page=#{@last_page.to_i + 1}"
     end
 
     def handle_image_url(image_url, page_prefix = '')
-      url_array = url.split('/')
+      url_array = @url.split('/')
       @last_page = url_array.pop()
       @image_url = image_url.children.first.attributes['src']
       if url_array.length == 5
